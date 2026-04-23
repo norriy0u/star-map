@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>StarMap - Interactive Constellation Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bg-audio" loop preload="none">
+        <source src="https://cdn.pixabay.com/audio/2022/01/20/audio_4d0c448ca3.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Intro -->
+    <div id="intro-screen" class="screen active">
+        <div class="glass-card">
+            <div class="badge">VishwaNova 2026 • Educational</div>
+            <div class="star-icon">✦</div>
+            <h1>Star<span class="sky-gradient">Map</span></h1>
+            <p class="tagline">Explore the constellations that guided ancient civilizations across the cosmos.</p>
+            <button id="start-btn" class="cosmic-btn">
+                <span>Enter the Night Sky</span>
+            </button>
+            <p class="hint">🔊 Ambient space audio • Touch to explore</p>
+        </div>
+    </div>
+
+    <!-- Star Map -->
+    <canvas id="star-canvas"></canvas>
+
+    <!-- Info Panel -->
+    <div id="info-panel" class="info-panel hidden">
+        <button id="close-panel" class="close-btn">✕</button>
+        <h3 id="const-name">Constellation</h3>
+        <p id="const-meaning" class="meaning"></p>
+        <p id="const-desc" class="description"></p>
+        <div class="const-stats">
+            <div class="const-stat">
+                <span class="stat-label">Stars</span>
+                <span class="stat-value" id="const-stars">0</span>
+            </div>
+            <div class="const-stat">
+                <span class="stat-label">Best Seen</span>
+                <span class="stat-value" id="const-season">-</span>
+            </div>
+            <div class="const-stat">
+                <span class="stat-label">Magnitude</span>
+                <span class="stat-value" id="const-mag">-</span>
+            </div>
+        </div>
+        <div class="fun-fact" id="fun-fact"></div>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls" class="controls hidden">
+        <button id="btn-reset" class="ctrl-btn" title="Reset View">🏠</button>
+        <button id="btn-lines" class="ctrl-btn active" title="Toggle Lines">╳</button>
+        <button id="btn-names" class="ctrl-btn active" title="Toggle Names">Aa</button>
+        <button id="btn-audio" class="ctrl-btn" title="Toggle Audio">🔇</button>
+    </div>
+
+    <!-- Constellation List -->
+    <div id="const-list" class="const-list hidden">
+        <h4>Constellations</h4>
+        <ul id="const-list-items"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
